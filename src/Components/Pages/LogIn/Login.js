@@ -89,14 +89,14 @@ const Login = () => {
     <div>
       <Header></Header>
       {/* <ToastContainer position="bottom-right"></ToastContainer> */}
-      <div className="flex h-screen justify-center items-center">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <div className="card-body">
+      <div className="flex h-screen justify-center items-center bg-slate-600">
+        <div className="card w-96 shadow-xl glass">
+          <div className="card-body text-white">
             <h2 className="text-center text-2xl font-bold">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white text-lg">Email</span>
                 </label>
                 <input
                   type="email"
@@ -128,7 +128,9 @@ const Login = () => {
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white text-lg">
+                    Password
+                  </span>
                 </label>
                 <input
                   type="password"
@@ -169,7 +171,7 @@ const Login = () => {
             <p>
               <small>
                 New to Western Tools Co.
-                <Link className="text-primary ml-5" to="/signup">
+                <Link className="text-blue-400 font-bold ml-5" to="/signup">
                   Create New Account
                 </Link>
               </small>
