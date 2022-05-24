@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <div>
       <Header></Header>
-      <div className="relative">
+      <div>
         <HeroSection></HeroSection>
-        <Tools></Tools>
         <BusinessSummary></BusinessSummary>
+        <Tools></Tools>
         <Reviews></Reviews>
         <Footer></Footer>
       </div>

@@ -1,124 +1,146 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
 import "./Header.css";
+import logo from "../../Assets/logo.png";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+    toast.success("Sign Up successfully", {
+      autoClose: 2000,
+    });
+    localStorage.removeItem("accessToken");
+  };
+
   return (
-    <div class="navbar bg-base-100 sticky top-0 z-50">
-      <div class="navbar-start">
-        {/* -----------------Mobile menubar---------------- */}
-        <div class="dropdown">
-          <label tabindex="0" class="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div>
+      <ToastContainer></ToastContainer>
+      <div className="navbar bg-stone-900 sticky top-0 z-50 text-white md:px-10">
+        <div className="navbar-start">
+          {/* -----------------Mobile menubar---------------- */}
+          <div className="dropdown">
+            <label tabIndex="0" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex="0"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-stone-800 rounded-box w-52"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              <li className="my-auto">
+                <NavLink to="/home">Home</NavLink>
+              </li>
+              {user && (
+                <li className="my-auto">
+                  <NavLink to="/purchase">Purchase</NavLink>
+                </li>
+              )}
+              {user && (
+                <li className="my-auto">
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                  <ul className="p-2 bg-stone-700">
+                    <li>
+                      <NavLink to="/dashboard/myOrder">My Order</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/dashboard/review">Add a Review</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/dashboard/manageOrders">
+                        Manage Orders
+                      </NavLink>
+                      <NavLink to="/dashboard/manageProducts">
+                        Manage Products
+                      </NavLink>
+                      <NavLink to="/dashboard/addProduct">Add Product</NavLink>
+                      <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
+                    </li>
+                  </ul>
+                </li>
+              )}
+              <li className="my-auto">
+                <NavLink to="/myPortfolio">My Portfolio</NavLink>
+              </li>
+              <li className="my-auto">
+                <NavLink to="/blogs">Blogs</NavLink>
+              </li>
+              <li className="my-auto">
+                {user ? (
+                  <button
+                    className="btn btn-outline btn-primary"
+                    onClick={logout}
+                  >
+                    Sign Out
+                  </button>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
+              </li>
+            </ul>
+          </div>
+          {/* -----------------Brand name---------------- */}
+          <img src={logo} alt="" />
+          <Link
+            to="/"
+            className="text-2xl pl-2 text-red-600 font-bold whitespace-nowrap"
           >
+            Western Tools Co.
+          </Link>
+        </div>
+        {/* -----------------Desktop menubar---------------- */}
+        <div className="navbar-end hidden lg:flex">
+          <ul className="menu menu-horizontal p-0">
             <li className="my-auto">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "active-link" : "link"
-                }
-                to="/home"
-              >
-                Home
-              </NavLink>
+              <NavLink to="/home">Home</NavLink>
+            </li>
+
+            {user && (
+              <li className="my-auto">
+                <NavLink to="/purchase">Purchase</NavLink>
+              </li>
+            )}
+
+            {user && (
+              <li className="my-auto">
+                <NavLink to="/dashboard">Dashboard</NavLink>
+              </li>
+            )}
+
+            <li className="my-auto">
+              <NavLink to="/myPortfolio">My Portfolio</NavLink>
             </li>
             <li className="my-auto">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "active-link" : "link"
-                }
-                to="/login"
-              >
-                Login
-              </NavLink>
+              <NavLink to="/blogs">Blogs</NavLink>
             </li>
-            <li tabindex="0">
-              <a class="justify-between">
-                Parent
-                <svg
-                  class="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul class="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+            <li className="my-auto">
+              {user ? (
+                <button className="btn btn-outline btn-info" onClick={logout}>
+                  Sign Out
+                </button>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </li>
           </ul>
         </div>
-        {/* -----------------Brand name---------------- */}
-        <Link className="ml-5" to="/">
-          Freshta Management System
-        </Link>
-      </div>
-      {/* -----------------Desktop menubar---------------- */}
-      <div class="navbar-end hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
-          <li className="my-auto">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
-              to="/home"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="my-auto">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
-              to="/login"
-            >
-              Login
-            </NavLink>
-          </li>
-          <li tabindex="0">
-            <a>
-              Parent
-              <svg
-                class="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-              </svg>
-            </a>
-            <ul class="p-2">
-              <li>
-                <a>Submenu 1</a>
-              </li>
-              <li>
-                <a>Submenu 2</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
       </div>
     </div>
   );
