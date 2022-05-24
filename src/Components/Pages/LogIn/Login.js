@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
 import { useForm } from "react-hook-form";
 import useToken from "../../../hooks/useToken";
+import Footer from "../../Footer/Footer";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -201,6 +202,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
