@@ -10,12 +10,12 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div class="card glass">
+    <div className="card glass">
       <figure>
         <img src={img} alt="" />
       </figure>
-      <div class="card-body">
-        <h2 class="card-title text-center text-white">{name}</h2>
+      <div className="card-body">
+        <h2 className="card-title text-center text-white">{name}</h2>
         <p className="text-white pt-2">{details}</p>
         <p className="text-white font-bold">
           Price : <span className="font-bold text-2xl">${price}/Pcs</span>
@@ -28,9 +28,9 @@ const Product = ({ product }) => {
           <span className="font-bold">Minimum Purchase Quantity : </span>
           <span className="text-xl">{min} Pcs</span>
         </p>
-        <div class="card-actions justify-end">
+        <div className="card-actions justify-end">
           <button
-            class="btn bg-white text-rose-600 font-bold hover:bg-red-900 block mx-auto border-none w-3/4 hover:text-white"
+            className="btn bg-white text-rose-600 font-bold hover:bg-red-900 block mx-auto border-none w-3/4 hover:text-white"
             onClick={() => navigateToProductDetail(_id)}
           >
             Buy now

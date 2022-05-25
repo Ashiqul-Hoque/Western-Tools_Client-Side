@@ -11,7 +11,7 @@ const BusinessSummary = () => {
         Business Summary
       </h1>
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-10">
-        <div class=" shadow-2xl py-6 rounded-3xl bg-gray-100">
+        <div className=" shadow-2xl py-6 rounded-3xl bg-gray-100">
           <IoIosPeople className="text-8xl text-red-600 block mx-auto"></IoIosPeople>
 
           <div className="flex justify-center">
@@ -25,9 +25,9 @@ const BusinessSummary = () => {
             <p className="text-3xl text-red-600">+</p>
           </div>
 
-          <h2 class="text-2xl text-center">Happy Customers</h2>
+          <h2 className="text-2xl text-center">Happy Customers</h2>
         </div>
-        <div class=" shadow-2xl py-6 rounded-3xl bg-gray-100">
+        <div className=" shadow-2xl py-6 rounded-3xl bg-gray-100">
           <GoTools className="text-6xl text-red-600 block mx-auto my-5"></GoTools>
 
           <div className="flex justify-center">
@@ -41,9 +41,9 @@ const BusinessSummary = () => {
             <p className="text-3xl text-red-600">+</p>
           </div>
 
-          <h2 class="text-2xl text-center">Tools Sold</h2>
+          <h2 className="text-2xl text-center">Tools Sold</h2>
         </div>
-        <div class=" shadow-2xl py-6 rounded-3xl bg-gray-100">
+        <div className=" shadow-2xl py-6 rounded-3xl bg-gray-100">
           <BiDollar className="text-7xl my-4 text-red-600 block mx-auto"></BiDollar>
 
           <div className="flex justify-center">
@@ -57,7 +57,7 @@ const BusinessSummary = () => {
             <p className="text-3xl text-red-600">K+</p>
           </div>
 
-          <h2 class="text-2xl text-center">Revenue</h2>
+          <h2 className="text-2xl text-center">Revenue</h2>
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ import Reviews from "./Components/Pages/Home/Reviews/Reviews";
 import Login from "./Components/Pages/LogIn/Login";
 import MyPortfolio from "./Components/Pages/MyPortfolio/MyPortfolio";
 import Purchase from "./Components/Pages/Purchase/Purchase";
+
 import SignUp from "./Components/Pages/SignUp/SignUp";
 import RequireAuth from "./Components/Shared/RequireAuth";
 
@@ -24,7 +25,7 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route
-          path="/purchase"
+          path="/purchase/:id"
           element={
             <RequireAuth>
               <Purchase></Purchase>

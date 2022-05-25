@@ -5,8 +5,8 @@ import logo from "../../Assets/logo.png";
 const Footer = () => {
   return (
     <div>
-      <footer class="footer footer-center p-8 bg-black text-primary-content">
-        <div class="grid grid-flow-col gap-4 font-bold text-base  text-white">
+      <footer className="footer footer-center p-8 bg-black text-primary-content">
+        <div className="grid grid-flow-col gap-4 font-bold text-base  text-white">
           <Link to="/home" className="hover:text-red-600">
             Home
           </Link>
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div>
           <img src={logo} alt="" />
-          <p class="font-bold text-xl text-red-600">Western Tools Co.</p>
+          <p className="font-bold text-xl text-red-600">Western Tools Co.</p>
           <p>Copyright © 2022 - All right reserved</p>
         </div>
       </footer>

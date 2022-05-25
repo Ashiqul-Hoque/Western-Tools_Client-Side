@@ -19,6 +19,7 @@ import Footer from "../../Footer/Footer";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const {
     register,
     formState: { errors },
@@ -41,6 +42,10 @@ const Login = () => {
     display: block;
     margin: 0 auto;
   `;
+
+  if (user || gUser) {
+    navigate(from, { replace: true });
+  }
 
   // useEffect(() => {
   //   if (token) {
@@ -88,7 +93,6 @@ const Login = () => {
   return (
     <div>
       <Header></Header>
-      {/* <ToastContainer position="bottom-right"></ToastContainer> */}
       <div className="flex justify-center items-center bg-slate-600">
         <div className="card w-96 shadow-xl glass my-10">
           <div className="card-body text-white">

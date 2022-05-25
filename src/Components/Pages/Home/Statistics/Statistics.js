@@ -12,8 +12,8 @@ const Statistics = () => {
             <div>
               <h1 className="text-xl mr-4 mb-2">Customer Satisfaction</h1>
             </div>
-            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
-              <div class="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-5/6 font-bold">
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
+              <div className="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-5/6 font-bold">
                 85%
               </div>
             </div>
@@ -22,8 +22,8 @@ const Statistics = () => {
             <div>
               <h1 className="text-xl mr-4 mb-2">Product Quality</h1>
             </div>
-            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
-              <div class="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-11/12 font-bold">
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
+              <div className="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-11/12 font-bold">
                 90%
               </div>
             </div>
@@ -32,8 +32,8 @@ const Statistics = () => {
             <div>
               <h1 className="text-xl mr-4 mb-2">Product Durability</h1>
             </div>
-            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
-              <div class="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-9/12 font-bold">
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
+              <div className="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-9/12 font-bold">
                 75%
               </div>
             </div>
@@ -42,8 +42,8 @@ const Statistics = () => {
             <div>
               <h1 className="text-xl mr-4 mb-2">Customer Support</h1>
             </div>
-            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
-              <div class="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-5/6 font-bold">
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 m-0">
+              <div className="bg-red-600 text-xs text-white text-center p-0.5  rounded-full w-5/6 font-bold">
                 85%
               </div>
             </div>
