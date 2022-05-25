@@ -75,11 +75,13 @@ const SignUp = () => {
         <div>
           <div className="card w-96 shadow-xl my-10 glass">
             <div className="card-body">
-              <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+              <h2 className="text-center text-2xl font-bold text-white">
+                Sign Up
+              </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Name</span>
+                    <span className="label-text text-white text-lg">Name</span>
                   </label>
                   <input
                     type="text"
@@ -103,7 +105,7 @@ const SignUp = () => {
 
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text text-white text-lg">Email</span>
                   </label>
                   <input
                     type="email"
@@ -135,7 +137,9 @@ const SignUp = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text text-white text-lg">
+                      Password
+                    </span>
                   </label>
                   <input
                     type="password"
@@ -174,14 +178,14 @@ const SignUp = () => {
                 />
               </form>
               <p>
-                <small>
-                  Already have an account?{" "}
-                  <Link className="text-primary" to="/login">
+                <small className="text-white">
+                  Already have an account?
+                  <Link className="ml-3 font-bold text-blue-400" to="/login">
                     Please login
                   </Link>
                 </small>
               </p>
-              <div className="divider">OR</div>
+              <div className="divider text-white">OR</div>
               <div>
                 <button
                   onClick={() => signInWithGoogle()}

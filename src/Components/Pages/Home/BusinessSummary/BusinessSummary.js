@@ -6,7 +6,7 @@ import { BiDollar } from "react-icons/bi";
 
 const BusinessSummary = () => {
   return (
-    <div className="pb-10 pt-6 px-10 bg-indigo-100">
+    <div className="pb-20 pt-10 px-10 bg-indigo-100">
       <h1 className="text-3xl pb-5 text-red-600 text-center">
         Business Summary
       </h1>

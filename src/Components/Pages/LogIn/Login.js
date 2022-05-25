@@ -89,8 +89,8 @@ const Login = () => {
     <div>
       <Header></Header>
       {/* <ToastContainer position="bottom-right"></ToastContainer> */}
-      <div className="flex h-screen justify-center items-center bg-slate-600">
-        <div className="card w-96 shadow-xl glass">
+      <div className="flex justify-center items-center bg-slate-600">
+        <div className="card w-96 shadow-xl glass my-10">
           <div className="card-body text-white">
             <h2 className="text-center text-2xl font-bold">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -187,7 +187,7 @@ const Login = () => {
                 </button>
               </small>
             </p> */}
-            <div className="divider">OR</div>
+            <div className="divider text-white">OR</div>
             <div>
               <button
                 onClick={() => signInWithGoogle()}
