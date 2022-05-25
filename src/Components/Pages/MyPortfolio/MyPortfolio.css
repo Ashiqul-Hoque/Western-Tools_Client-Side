@@ -1,0 +1,27 @@
+.aboutMe {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.aboutMe img {
+  width: 350px;
+}
+
+@media only screen and (max-width: 550px) {
+  .aboutMe {
+    grid-template-columns: 1fr;
+  }
+  .aboutMe img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (min-width: 551px) and (max-width: 992px) {
+  .aboutMe {
+    grid-template-columns: 1fr 1fr;
+  }
+  .aboutMe img {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}

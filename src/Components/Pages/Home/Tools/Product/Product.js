@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, img, details, price, stock, min } = product;
+  const { name, img, details, price, stock, min, _id } = product;
+
+  const navigate = useNavigate();
+  const navigateToProductDetail = (id) => {
+    navigate(`/purchase/${id}`);
+  };
+
   return (
     <div class="card glass">
       <figure>
@@ -22,7 +29,10 @@ const Product = ({ product }) => {
           <span className="text-xl">{min} Pcs</span>
         </p>
         <div class="card-actions justify-end">
-          <button class="btn bg-white text-rose-600 font-bold hover:bg-red-900 block mx-auto border-none w-3/4 hover:text-white">
+          <button
+            class="btn bg-white text-rose-600 font-bold hover:bg-red-900 block mx-auto border-none w-3/4 hover:text-white"
+            onClick={() => navigateToProductDetail(_id)}
+          >
             Buy now
           </button>
         </div>

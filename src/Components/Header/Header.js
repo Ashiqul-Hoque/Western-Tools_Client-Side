@@ -50,11 +50,6 @@ const Header = () => {
               </li>
               {user && (
                 <li className="my-auto">
-                  <NavLink to="/purchase">Purchase</NavLink>
-                </li>
-              )}
-              {user && (
-                <li className="my-auto">
                   <NavLink to="/dashboard">Dashboard</NavLink>
                   <ul className="p-2 bg-stone-700">
                     <li>
@@ -111,12 +106,6 @@ const Header = () => {
             <li className="my-auto">
               <NavLink to="/home">Home</NavLink>
             </li>
-
-            {user && (
-              <li className="my-auto">
-                <NavLink to="/purchase">Purchase</NavLink>
-              </li>
-            )}
 
             {user && (
               <li className="my-auto">
