@@ -17,6 +17,7 @@ import Purchase from "./Components/Pages/Purchase/Purchase";
 
 import SignUp from "./Components/Pages/SignUp/SignUp";
 import RequireAuth from "./Components/Shared/RequireAuth";
+import { toast, ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Route path="/signUp" element={<SignUp></SignUp>} />
         <Route path="*" element={<ErrorPage></ErrorPage>} />
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

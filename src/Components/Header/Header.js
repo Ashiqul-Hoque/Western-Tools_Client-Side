@@ -15,7 +15,7 @@ const Header = () => {
     toast.success("Sign Up successfully", {
       autoClose: 2000,
     });
-    // localStorage.removeItem("accessToken");
+    localStorage.removeItem("accessToken");
   };
 
   return (
