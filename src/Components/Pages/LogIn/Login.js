@@ -34,7 +34,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  // const [token] = useToken(user || gUser);
+  const [token] = useToken(user || gUser);
 
   // const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
@@ -44,16 +44,10 @@ const Login = () => {
   `;
 
   useEffect(() => {
-    if (user || gUser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
-
-  // useEffect(() => {
-  //   if (token) {
-  //     navigate(from, { replace: true });
-  //   }
-  // }, [token, from, navigate]);
+  }, [token, from, navigate]);
 
   if (loading || gLoading) {
     return (

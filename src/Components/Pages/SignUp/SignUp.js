@@ -25,7 +25,7 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  // const [token] = useToken("" || user || gUser);
+  const [token] = useToken("" || user || gUser);
   // console.log(token);
 
   const navigate = useNavigate();
@@ -58,14 +58,13 @@ const SignUp = () => {
     );
   }
 
-  // if (token) {
-  //   navigate("/home");
-  // }
+  if (token) {
+    navigate("/home");
+  }
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    navigate("/home");
   };
 
   return (
