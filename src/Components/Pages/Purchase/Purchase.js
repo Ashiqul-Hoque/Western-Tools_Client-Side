@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useQuery } from "react-query";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
@@ -59,6 +58,7 @@ const Purchase = () => {
       address,
       phone,
       orderQuantity,
+      cost: totalCost,
     };
 
     fetch("http://localhost:5000/orders", {

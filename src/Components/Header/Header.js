@@ -51,24 +51,6 @@ const Header = () => {
               {user && (
                 <li className="my-auto">
                   <NavLink to="/dashboard">Dashboard</NavLink>
-                  <ul className="p-2 bg-stone-700">
-                    <li>
-                      <NavLink to="/dashboard/myOrder">My Order</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/dashboard/review">Add a Review</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/dashboard/manageOrders">
-                        Manage Orders
-                      </NavLink>
-                      <NavLink to="/dashboard/manageProducts">
-                        Manage Products
-                      </NavLink>
-                      <NavLink to="/dashboard/addProduct">Add Product</NavLink>
-                      <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
-                    </li>
-                  </ul>
                 </li>
               )}
               <li className="my-auto">
@@ -101,22 +83,22 @@ const Header = () => {
           </Link>
         </div>
         {/* -----------------Desktop menubar---------------- */}
-        <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            <li className="my-auto">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal p-0 mx-20">
+            <li className="my-auto mr-5">
               <NavLink to="/home">Home</NavLink>
             </li>
 
             {user && (
-              <li className="my-auto">
+              <li className="my-auto mr-5">
                 <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             )}
 
-            <li className="my-auto">
+            <li className="my-auto mr-5">
               <NavLink to="/myPortfolio">My Portfolio</NavLink>
             </li>
-            <li className="my-auto">
+            <li className="my-auto mr-5">
               <NavLink to="/blogs">Blogs</NavLink>
             </li>
             <li className="my-auto">
@@ -129,6 +111,28 @@ const Header = () => {
               )}
             </li>
           </ul>
+        </div>
+        <div className="navbar-end">
+          <label
+            tabIndex="1"
+            htmlFor="dashboard-sidebar"
+            className="btn btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
         </div>
       </div>
     </div>
