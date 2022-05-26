@@ -43,9 +43,11 @@ const Login = () => {
     margin: 0 auto;
   `;
 
-  if (user || gUser) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (user || gUser) {
+      navigate(from, { replace: true });
+    }
+  }, [user, gUser, from, navigate]);
 
   // useEffect(() => {
   //   if (token) {
@@ -66,7 +68,7 @@ const Login = () => {
 
   if (error || gError) {
     signInError = (
-      <p className="text-red-500">
+      <p className="text-red-500 mb-1">
         <small>{error?.message || gError?.message}</small>
       </p>
     );
@@ -139,7 +141,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="Password"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered text-black w-full max-w-xs"
                   {...register("password", {
                     required: {
                       value: true,

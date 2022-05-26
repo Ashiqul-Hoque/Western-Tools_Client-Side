@@ -11,9 +11,7 @@ const Purchase = () => {
 
   const [product, setProduct] = useState({});
   const { name, details, price, stock, img, min } = product;
-  const [available, setAvailable] = useState({});
-  const [minimum, setMinimum] = useState({});
-  const [orderAmount, setOrderAmount] = useState({});
+  const [orderAmount, setOrderAmount] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:5000/products/${id}`)
@@ -21,16 +19,23 @@ const Purchase = () => {
       .then((data) => setProduct(data));
   }, [id]);
 
-  useEffect(() => {
-    setAvailable(stock);
-    setMinimum(min);
-  }, []);
+  let errorElement;
 
   const handleOrderError = (event) => {
     const orderQuantity = event.target.value;
     setOrderAmount(orderQuantity);
     console.log(orderQuantity, orderAmount);
   };
+
+  if (orderAmount < min || orderAmount > stock) {
+    errorElement = (
+      <p className="text-red-600">
+        Order quantity must be greater than {min} & less than {stock}
+      </p>
+    );
+  }
+
+  const totalCost = orderAmount * price;
 
   const handleOrder = (event) => {
     event.preventDefault();
@@ -39,17 +44,36 @@ const Purchase = () => {
     const userName = user.displayName;
     const email = user.email;
     const address = event.target.address.value;
-    const phone = event.target.phone.value;
-    const orderQuantity = event.target.order.value;
-    console.log(
+    const phone = parseInt(event.target.phone.value);
+    const orderQuantity = parseInt(event.target.order.value);
+    const order = {
       product,
       productId,
       userName,
       email,
       address,
       phone,
-      orderQuantity
-    );
+      orderQuantity,
+    };
+
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    // console.log(
+    //   product,
+    //   productId,
+    //   userName,
+    //   email,
+    //   address,
+    //   phone,
+    //   orderQuantity
+    // );
   };
 
   return (
@@ -93,7 +117,7 @@ const Purchase = () => {
                     name="name"
                     className="input input-bordered text-lg w-full md:w-1/2"
                     disabled
-                    value={user.displayName}
+                    value={user?.displayName || ""}
                   />
                 </label>
               </div>
@@ -105,7 +129,7 @@ const Purchase = () => {
                     name="email"
                     className="input input-bordered text-lg w-full md:w-1/2"
                     disabled
-                    value={user.email}
+                    value={user?.email || ""}
                   />
                 </label>
               </div>
@@ -134,19 +158,26 @@ const Purchase = () => {
                 <label className="input-group">
                   <span>Order Quantity</span>
                   <input
-                    onKeyUp={handleOrderError}
+                    onChange={handleOrderError}
                     type="number"
                     name="order"
                     required
                     className="input input-bordered text-lg w-full md:w-1/3"
+                    min="0"
                   />
                 </label>
               </div>
-              <div className="form-control mb-3">
-                <h1 className="text-2xl font-bold">Total Cost :</h1>
+              {errorElement}
+
+              <div className="form-control my-3">
+                <h1 className="text-2xl font-bold text-green-600">
+                  Total Cost : $ {totalCost}
+                </h1>
               </div>
 
-              {!(orderAmount >= minimum) || !(orderAmount <= available) ? (
+              {!(orderAmount >= min) ||
+              !(orderAmount <= stock) ||
+              orderAmount < 0 ? (
                 <button
                   type="submit"
                   className="btn mt-5 mx-auto border-none block"

@@ -10,7 +10,11 @@ const MyPortfolio = () => {
       <Header></Header>
       <div className="aboutMe container my-5 py-5">
         <div className=" flex justify-center m-10 avatar">
-          <img className="rounded-full bg-white " src={developer} alt="" />
+          <img
+            className="mask mask-squircle bg-white "
+            src={developer}
+            alt=""
+          />
         </div>
         <div>
           <h3 className="text-center">
