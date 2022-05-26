@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Footer from "../../Footer/Footer";
@@ -10,14 +11,16 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
 
   const [product, setProduct] = useState({});
-  const { name, details, price, stock, img, min } = product;
   const [orderAmount, setOrderAmount] = useState("");
+  const [control, setControl] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:5000/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, [id]);
+  }, [id, control]);
+
+  let { name, details, price, stock, img, min } = product;
 
   let errorElement;
 
@@ -35,7 +38,9 @@ const Purchase = () => {
     );
   }
 
-  const totalCost = orderAmount * price;
+  let totalCost = orderAmount * price;
+  let newStock = stock - orderAmount;
+  console.log(newStock);
 
   const handleOrder = (event) => {
     event.preventDefault();
@@ -65,15 +70,22 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-    // console.log(
-    //   product,
-    //   productId,
-    //   userName,
-    //   email,
-    //   address,
-    //   phone,
-    //   orderQuantity
-    // );
+
+    const url = `http://localhost:5000/products/${id}`;
+    console.log(url);
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ newStock }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount == 1) {
+          setControl(!control);
+        }
+      });
   };
 
   return (
