@@ -1,11 +1,7 @@
 import React from "react";
 
 const ManageOrders = () => {
-  return (
-    <div>
-      <h1>Manage Orders</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default ManageOrders;

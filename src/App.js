@@ -17,7 +17,8 @@ import Purchase from "./Components/Pages/Purchase/Purchase";
 
 import SignUp from "./Components/Pages/SignUp/SignUp";
 import RequireAuth from "./Components/Shared/RequireAuth";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import RequireAdmin from "./Components/Shared/RequireAdmin";
 
 function App() {
   return (
@@ -48,14 +49,36 @@ function App() {
           <Route path="review" element={<Reviews></Reviews>}></Route>
           <Route
             path="manageOrders"
-            element={<ManageOrders></ManageOrders>}
+            element={
+              <RequireAdmin>
+                <ManageOrders></ManageOrders>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="manageProducts"
-            element={<ManageProducts></ManageProducts>}
+            element={
+              <RequireAdmin>
+                <ManageProducts></ManageProducts>
+              </RequireAdmin>
+            }
           ></Route>
-          <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
-          <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddProduct></AddProduct>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin></MakeAdmin>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
 
         <Route path="/blogs" element={<Blogs></Blogs>} />
