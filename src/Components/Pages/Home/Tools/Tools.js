@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
+import useProduct from "../../../../hooks/useProduct";
 import Product from "../Tools/Product/Product";
 
 const Tools = () => {
-  const [tools, setTools] = useState([]);
-  const reverseTools = tools.slice().reverse();
-
-  useEffect(() => {
-    fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => setTools(data));
-  }, []);
+  const [allProducts, setAllProducts] = useProduct();
+  const reverseTools = allProducts.slice().reverse();
 
   return (
     <div className="py-8 bg-red-600">

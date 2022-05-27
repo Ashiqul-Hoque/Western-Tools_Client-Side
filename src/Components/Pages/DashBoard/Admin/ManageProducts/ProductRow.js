@@ -1,7 +1,7 @@
 import React from "react";
 
-const ProductRow = ({ tool, refetch, index }) => {
-  const { img, name, stock, price } = tool;
+const ProductRow = ({ tool, index, handleDelete }) => {
+  const { img, name, stock, price, _id } = tool;
   return (
     <tr>
       <th>{index + 1}</th>
@@ -16,7 +16,12 @@ const ProductRow = ({ tool, refetch, index }) => {
       <td>{stock} Pcs</td>
       <td>$ {price}/Pcs </td>
       <td>
-        <button class="btn btn-xs bg-red-600 border-none">Delete</button>
+        <button
+          className="btn btn-xs bg-red-600 border-none"
+          onClick={() => handleDelete(_id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );
