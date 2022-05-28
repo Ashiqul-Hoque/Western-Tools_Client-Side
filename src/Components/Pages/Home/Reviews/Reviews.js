@@ -12,7 +12,7 @@ import user3 from "../../../../Assets/player-5.png";
 const Reviews = () => {
   const [user] = useAuthState(auth);
   const { data: users, isLoading } = useQuery("users", () =>
-    fetch("http://localhost:5000/users", {
+    fetch("https://serene-wildwood-78626.herokuapp.com/users", {
       method: "GET",
     }).then((res) => res.json())
   );

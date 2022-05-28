@@ -14,7 +14,7 @@ const Purchase = () => {
   const [control, setControl] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://serene-wildwood-78626.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id, control]);
@@ -62,7 +62,7 @@ const Purchase = () => {
       status: "Payment Pending",
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://serene-wildwood-78626.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -72,7 +72,7 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
 
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://serene-wildwood-78626.herokuapp.com/products/${id}`;
     console.log(url);
     fetch(url, {
       method: "PUT",

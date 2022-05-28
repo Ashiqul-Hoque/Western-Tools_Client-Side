@@ -14,7 +14,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/orders/${email}`, {
+      fetch(`https://serene-wildwood-78626.herokuapp.com/orders/${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

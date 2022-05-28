@@ -13,7 +13,7 @@ const MyReview = () => {
     const rating = event.target.rating.value;
     console.log("clicked", review, rating);
 
-    const url = `http://localhost:5000/users/${email}`;
+    const url = `https://serene-wildwood-78626.herokuapp.com/users/${email}`;
     console.log(url);
     fetch(url, {
       method: "PUT",

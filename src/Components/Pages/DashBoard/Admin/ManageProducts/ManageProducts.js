@@ -36,7 +36,7 @@ const ManageProducts = () => {
     console.log("clicked", id);
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://serene-wildwood-78626.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })

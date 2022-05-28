@@ -13,7 +13,7 @@ const MyProfile = () => {
   const email = user.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://serene-wildwood-78626.herokuapp.com/users/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -31,7 +31,7 @@ const MyProfile = () => {
     const phone = parseInt(event.target.phone.value);
     console.log(education, address, phone);
 
-    const url = `http://localhost:5000/users/${email}`;
+    const url = `https://serene-wildwood-78626.herokuapp.com/users/${email}`;
     fetch(url, {
       method: "PUT",
       headers: {

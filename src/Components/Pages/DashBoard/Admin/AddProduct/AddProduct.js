@@ -13,7 +13,7 @@ const AddProduct = () => {
     let stock = parseInt(event.target.quantity.value);
     let min = parseInt(event.target.minimum.value);
 
-    const url = `http://localhost:5000/products`;
+    const url = `https://serene-wildwood-78626.herokuapp.com/products`;
     fetch(url, {
       method: "POST",
       headers: {
