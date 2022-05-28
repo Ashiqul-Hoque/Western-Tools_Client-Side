@@ -35,7 +35,7 @@ const Reviews = () => {
   console.log(users);
   const reverseUsers = users.slice().reverse().slice(0, 3);
 
-  const uName = ["a", "b", "c"];
+  const uName = ["John White", "Alex Doe", "Michel Hogwart"];
   const image = [user1, user2, user3];
 
   return (
@@ -49,7 +49,7 @@ const Reviews = () => {
             <div className="w-32 mask mask-squircle mb-5 block mx-auto">
               <img src={image[index]} alt="" />
             </div>
-            <h1>{uName[index]}</h1>
+            <h1 className="font-bold text-red-700">{uName[index]}</h1>
             <p>"{u.review}"</p>
             <p>
               <span className="font-bold">Rating:</span> {u.rating} out of 5

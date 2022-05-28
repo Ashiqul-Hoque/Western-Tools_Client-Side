@@ -6,7 +6,7 @@
   width: 350px;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
   .aboutMe {
     grid-template-columns: 1fr;
   }
