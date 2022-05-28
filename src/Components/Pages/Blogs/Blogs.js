@@ -81,17 +81,17 @@ const Blogs = () => {
             have const [products, setProducts] = useState([]). Why you do not
             set products = [...] instead, you use the setProducts
           </h1>
-          <p className="mt-2">
-            <h1>
+          <h1 className="mt-2">
+            <p>
               One should never set the state directly because of the following
               reasons:
-            </h1>
+            </p>
             <li>
               If we set it directly, calling the setState() afterward it can not
               change its value as we want
             </li>
             <li>We will lose control of the state across all components.</li>
-          </p>
+          </h1>
         </div>
         <div className="mt-8">
           <h1 className="text-2xl font-bold text-red-600">

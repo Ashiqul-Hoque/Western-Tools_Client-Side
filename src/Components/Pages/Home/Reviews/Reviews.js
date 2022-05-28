@@ -32,8 +32,8 @@ const Reviews = () => {
       ></HashLoader>
     );
   }
-  console.log(users);
-  const reverseUsers = users.slice().reverse().slice(0, 3);
+
+  const reverseUsers = users.slice(0, 3);
 
   const uName = ["John White", "Alex Doe", "Michel Hogwart"];
   const image = [user1, user2, user3];
@@ -45,7 +45,7 @@ const Reviews = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mx-10">
         {reverseUsers.map((u, index) => (
-          <div className="bg-white text-center p-5 rounded-3xl">
+          <div className="bg-white text-center p-5 rounded-3xl" key={index}>
             <div className="w-32 mask mask-squircle mb-5 block mx-auto">
               <img src={image[index]} alt="" />
             </div>

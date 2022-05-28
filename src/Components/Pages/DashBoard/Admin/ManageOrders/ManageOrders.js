@@ -29,7 +29,7 @@ const ManageOrders = () => {
           </thead>
           <tbody>
             {allOrders.map((order, index) => (
-              <tr>
+              <tr key={index}>
                 <th>{index + 1}</th>
                 <td>{order.email}</td>
                 <td>{order.product}</td>
