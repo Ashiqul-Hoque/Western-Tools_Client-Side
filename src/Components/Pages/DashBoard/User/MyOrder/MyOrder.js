@@ -8,11 +8,13 @@ const MyOrder = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const email = user.email;
 
   console.log(user.email);
+
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/orders?email=${user.email}`, {
+      fetch(`http://localhost:5000/orders/${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -36,13 +38,14 @@ const MyOrder = () => {
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
-            <tr>
+            <tr className="text-center">
               <th></th>
               <th>Name</th>
-              <th>Order Quantity</th>
-              <th>Total Cost</th>
-              <th>Address</th>
+              <th>Order Quantity (Pcs)</th>
+              <th>Total Cost ($)</th>
               <th>Email</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -52,8 +55,16 @@ const MyOrder = () => {
                 <td>{order.product}</td>
                 <td>{order.orderQuantity}</td>
                 <td>{order.cost}</td>
-                <td>{order.address}</td>
                 <td>{order.email}</td>
+                <td>{order.status}</td>
+                <td>
+                  <button className="btn btn-xs bg-green-600 border-none mx-1">
+                    Payment
+                  </button>
+                  <button className="btn btn-xs bg-red-600 border-none mx-1">
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,5 +1,5 @@
 import React from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const UserRow = ({ user, refetch, index }) => {
   const { email, role } = user;

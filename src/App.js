@@ -19,6 +19,7 @@ import SignUp from "./Components/Pages/SignUp/SignUp";
 import RequireAuth from "./Components/Shared/RequireAuth";
 import { ToastContainer } from "react-toastify";
 import RequireAdmin from "./Components/Shared/RequireAdmin";
+import MyReview from "./Components/Pages/DashBoard/User/MyReview/MyReview";
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
         >
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
-          <Route path="review" element={<Reviews></Reviews>}></Route>
+          <Route path="myReview" element={<MyReview></MyReview>}></Route>
           <Route
             path="manageOrders"
             element={

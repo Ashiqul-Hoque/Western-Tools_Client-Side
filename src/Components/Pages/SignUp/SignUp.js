@@ -151,7 +151,7 @@ const SignUp = () => {
                       },
                       minLength: {
                         value: 6,
-                        message: "Must be 6 characters or longer",
+                        message: "Must be 8 characters or longer",
                       },
                     })}
                   />

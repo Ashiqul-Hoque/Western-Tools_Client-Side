@@ -4,7 +4,7 @@ import Product from "../Tools/Product/Product";
 
 const Tools = () => {
   const [allProducts, setAllProducts] = useProduct();
-  const reverseTools = allProducts.slice().reverse();
+  const reverseTools = allProducts.slice().reverse().slice(0, 3);
 
   return (
     <div className="py-8 bg-red-600">

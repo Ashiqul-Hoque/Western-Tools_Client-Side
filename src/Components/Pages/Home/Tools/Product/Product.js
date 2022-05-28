@@ -12,7 +12,7 @@ const Product = ({ product }) => {
   return (
     <div className="card glass">
       <figure>
-        <img src={img} alt="" />
+        <img className="w-full" src={img} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-center text-white">{name}</h2>
