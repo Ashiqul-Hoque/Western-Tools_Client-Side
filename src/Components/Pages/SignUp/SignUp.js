@@ -25,7 +25,7 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  const [token] = useToken("" || user || gUser);
+  // const [token] = useToken("" || user || gUser);
   // console.log(token);
 
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const SignUp = () => {
     );
   }
 
-  if (token) {
+  if (user || gUser) {
     navigate("/home");
   }
 
